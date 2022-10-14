@@ -27,6 +27,7 @@ export interface SpriteProps extends CanvasBaseProps {
   frames?: Frames
   moving?: boolean
   sprites?: SpritesImage
+  scale?: number
 }
 
 // return

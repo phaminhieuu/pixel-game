@@ -63,23 +63,23 @@ const Home: NextPage = () => {
     foregroundImage.src = '/foreground.png'
 
     const playerDownImage = new Image()
-    playerDownImage.src = '/playerDown.png'
+    playerDownImage.src = '/down.png'
 
     const playerLeftImage = new Image()
-    playerLeftImage.src = '/playerLeft.png'
+    playerLeftImage.src = '/left.png'
 
     const playerUpImage = new Image()
-    playerUpImage.src = '/playerUp.png'
+    playerUpImage.src = '/up.png'
 
     const playerRightImage = new Image()
-    playerRightImage.src = '/playerRight.png'
+    playerRightImage.src = '/right.png'
 
     const player = sprite({
       canvas: c,
       image: playerDownImage,
-      frames: { max: 4, val: 0, elapsed: 0 },
+      frames: { max: 6, val: 0, elapsed: 0 },
       position: {
-        x: innerWidth / 2 - 192 / 4 / 2,
+        x: innerWidth / 2 - (68 * 6) / 4 / 2,
         y: innerHeight / 2 - 68 / 4 / 2
       },
       sprites: {
@@ -87,7 +87,8 @@ const Home: NextPage = () => {
         down: playerDownImage,
         left: playerLeftImage,
         right: playerRightImage
-      }
+      },
+      scale: 1
     })
 
     const background = sprite({
@@ -280,7 +281,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Pokemon game</title>
+        <title>Pixel game</title>
         <meta name="description" content="Pokemon game" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

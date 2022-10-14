@@ -13,7 +13,8 @@ export function sprite({
   frames = { max: 1, val: 0, elapsed: 0 },
   position,
   moving = false,
-  sprites
+  sprites,
+  scale = 1
 }: SpriteProps) {
   const width = image.width / frames.max
   const height = image.height
@@ -38,8 +39,8 @@ export function sprite({
       height,
       x,
       y,
-      width,
-      height
+      width * scale,
+      height * scale
     )
 
     if (!moving) return

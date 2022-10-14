@@ -43,11 +43,9 @@ export function sprite({
       height * scale
     )
 
-    if (!moving) return
-
     if (frames.max > 1) frames.elapsed++
 
-    if (frames.elapsed % 10 === 0) {
+    if (frames.elapsed % 6 === 0) {
       if (frames.val < frames.max - 1) frames.val++
       else frames.val = 0
     }

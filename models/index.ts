@@ -11,10 +11,14 @@ export interface Frames {
 }
 
 export interface SpritesImage {
-  up: HTMLImageElement
-  left: HTMLImageElement
-  down: HTMLImageElement
-  right: HTMLImageElement
+  moveUp: HTMLImageElement
+  moveLeft: HTMLImageElement
+  moveDown: HTMLImageElement
+  moveRight: HTMLImageElement
+  idleUp: HTMLImageElement
+  idleLeft: HTMLImageElement
+  idleDown: HTMLImageElement
+  idleRight: HTMLImageElement
 }
 
 export interface CanvasBaseProps {

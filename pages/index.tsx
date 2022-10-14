@@ -62,31 +62,47 @@ const Home: NextPage = () => {
     const foregroundImage = new Image()
     foregroundImage.src = '/foreground.png'
 
-    const playerDownImage = new Image()
-    playerDownImage.src = '/down.png'
+    const moveDown = new Image()
+    moveDown.src = '/move-down.png'
 
-    const playerLeftImage = new Image()
-    playerLeftImage.src = '/left.png'
+    const moveLeft = new Image()
+    moveLeft.src = '/move-left.png'
 
-    const playerUpImage = new Image()
-    playerUpImage.src = '/up.png'
+    const moveUp = new Image()
+    moveUp.src = '/move-up.png'
 
-    const playerRightImage = new Image()
-    playerRightImage.src = '/right.png'
+    const moveRight = new Image()
+    moveRight.src = '/move-right.png'
+
+    const idleDown = new Image()
+    idleDown.src = '/idle-right.png'
+
+    const idleLeft = new Image()
+    idleLeft.src = '/idle-left.png'
+
+    const idleUp = new Image()
+    idleUp.src = '/idle-left.png'
+
+    const idleRight = new Image()
+    idleRight.src = '/idle-right.png'
 
     const player = sprite({
       canvas: c,
-      image: playerDownImage,
+      image: idleRight,
       frames: { max: 6, val: 0, elapsed: 0 },
       position: {
-        x: innerWidth / 2 - (68 * 6) / 4 / 2,
-        y: innerHeight / 2 - 68 / 4 / 2
+        x: innerWidth / 2 - 264 / 4 / 2,
+        y: innerHeight / 2 - 90 / 4 / 2
       },
       sprites: {
-        up: playerUpImage,
-        down: playerDownImage,
-        left: playerLeftImage,
-        right: playerRightImage
+        moveUp,
+        moveDown,
+        moveLeft,
+        moveRight,
+        idleUp,
+        idleDown,
+        idleLeft,
+        idleRight
       },
       scale: 1
     })
@@ -143,7 +159,7 @@ const Home: NextPage = () => {
       // Keyboard movement
       if (keys.w.pressed && lastKey === 'w') {
         player.moving = true
-        const upImg = player.sprites?.up
+        const upImg = player.sprites?.moveUp
         player.image = upImg ? upImg : player.image
         for (let i = 0; i < boundaries.length; i++) {
           const boundary = boundaries[i]
@@ -165,7 +181,7 @@ const Home: NextPage = () => {
         }
       } else if (keys.a.pressed && lastKey === 'a') {
         player.moving = true
-        const leftImg = player.sprites?.left
+        const leftImg = player.sprites?.moveLeft
         player.image = leftImg ? leftImg : player.image
         for (let i = 0; i < boundaries.length; i++) {
           const boundary = boundaries[i]
@@ -187,7 +203,7 @@ const Home: NextPage = () => {
         }
       } else if (keys.s.pressed && lastKey === 's') {
         player.moving = true
-        const downImg = player.sprites?.down
+        const downImg = player.sprites?.moveDown
         player.image = downImg ? downImg : player.image
         for (let i = 0; i < boundaries.length; i++) {
           const boundary = boundaries[i]
@@ -209,7 +225,7 @@ const Home: NextPage = () => {
         }
       } else if (keys.d.pressed && lastKey === 'd') {
         player.moving = true
-        const rightImg = player.sprites?.right
+        const rightImg = player.sprites?.moveRight
         player.image = rightImg ? rightImg : player.image
         for (let i = 0; i < boundaries.length; i++) {
           const boundary = boundaries[i]
@@ -229,8 +245,19 @@ const Home: NextPage = () => {
         if (moving) {
           movables.forEach((movable) => (movable.position.x -= 3))
         }
+      } else if (!keys.a.pressed && lastKey === 'a') {
+        const idle = player.sprites?.idleLeft
+        player.image = idle ? idle : player.image
+      } else if (!keys.d.pressed && lastKey === 'd') {
+        const idle = player.sprites?.idleRight
+        player.image = idle ? idle : player.image
+      } else if (!keys.s.pressed && lastKey === 's') {
+        const idle = player.sprites?.idleRight
+        player.image = idle ? idle : player.image
+      } else if (!keys.w.pressed && lastKey === 'w') {
+        const idle = player.sprites?.idleRight
+        player.image = idle ? idle : player.image
       }
-
       return () => {
         cancelAnimationFrame(req)
       }

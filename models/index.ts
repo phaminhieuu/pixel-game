@@ -19,6 +19,10 @@ export interface SpritesImage {
   idleLeft: HTMLImageElement
   idleDown: HTMLImageElement
   idleRight: HTMLImageElement
+  attackRight: HTMLImageElement
+  attackLeft: HTMLImageElement
+  attackUp: HTMLImageElement
+  attackDown: HTMLImageElement
 }
 
 export interface CanvasBaseProps {
@@ -32,6 +36,7 @@ export interface SpriteProps extends CanvasBaseProps {
   moving?: boolean
   sprites?: SpritesImage
   scale?: number
+  isAttack?: boolean
 }
 
 // return

@@ -1,9 +1,4 @@
-import { CanvasReturnType } from '../models'
-
-export default function rectangularCollision(
-  rect1: CanvasReturnType,
-  rect2: CanvasReturnType
-) {
+export default function rectangularCollision(rect1: any, rect2: any) {
   const { position: position1, width: rect1W, height: rect1H } = rect1
   const { position: position2, width: rect2W, height: rect2H } = rect2
   const check =

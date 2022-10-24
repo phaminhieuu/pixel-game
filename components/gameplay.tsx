@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Sprite, Boundary } from '../classes/sprite'
 import { collisions } from '../data/collisions'
-import { CanvasReturnType } from '../models'
 import rectangularCollision from '../utils/check'
 
 export default function GamePlay() {
@@ -61,40 +60,40 @@ export default function GamePlay() {
     foregroundImage.src = '/foreground.png'
 
     const moveDown = new Image()
-    moveDown.src = '/move-down.png'
+    moveDown.src = '/player/move-down.png'
 
     const moveLeft = new Image()
-    moveLeft.src = '/move-left.png'
+    moveLeft.src = '/player/move-left.png'
 
     const moveUp = new Image()
-    moveUp.src = '/move-up.png'
+    moveUp.src = '/player/move-up.png'
 
     const moveRight = new Image()
-    moveRight.src = '/move-right.png'
+    moveRight.src = '/player/move-right.png'
 
     const idleDown = new Image()
-    idleDown.src = '/idle-right.png'
+    idleDown.src = '/player/idle-right.png'
 
     const idleLeft = new Image()
-    idleLeft.src = '/idle-left.png'
+    idleLeft.src = '/player/idle-left.png'
 
     const idleUp = new Image()
-    idleUp.src = '/idle-left.png'
+    idleUp.src = '/player/idle-left.png'
 
     const idleRight = new Image()
-    idleRight.src = '/idle-right.png'
+    idleRight.src = '/player/idle-right.png'
 
     const attackRight = new Image()
-    attackRight.src = '/attack-right.png'
+    attackRight.src = '/player/attack-right.png'
 
     const attackLeft = new Image()
-    attackLeft.src = '/attack-left.png'
+    attackLeft.src = '/player/attack-left.png'
 
     const attackDown = new Image()
-    attackDown.src = '/attack-down.png'
+    attackDown.src = '/player/attack-right.png'
 
     const attackUp = new Image()
-    attackUp.src = '/attack-up.png'
+    attackUp.src = '/player/attack-up.png'
 
     const player = new Sprite({
       canvas: c,
